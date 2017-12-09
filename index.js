@@ -10,9 +10,6 @@ const restService = express();
 
 restService.use(bodyParser.json());
 
-// set the view engine to ejs
-restService.set('view engine', 'ejs'); 
-
 // use res.render to load up an ejs view file
 
 
