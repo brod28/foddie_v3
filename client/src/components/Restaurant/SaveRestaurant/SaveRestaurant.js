@@ -43,7 +43,7 @@ class SaveRestaurant extends Component {
         }
         let unsave=()=>{
             let new_restaurant=_this.getRestaurants()
-            new_restaurant.splice(_this.indexOfRestaurant(_this.props.restaurant), 1);
+            new_restaurant.splice(_this.indexOfRestaurant(_this.props.restaurant.name), 1);
             _this.setRestaurants(new_restaurant);
             _this.forceUpdate();
         }

@@ -4,30 +4,32 @@ import GoogleMapReact from 'google-map-react';
 import './style.styl';
 
 
-const CustomMarker = ({ text }) => <div className="custom-marker"><p>{text}</p></div>;
+
+const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 class GoogleMapReactComponent extends PureComponent {
+
   render() {
-    const GoogleMapsMarkers = this.props.locations_data.map(location => (
+    let CustomMarker = ({ text }) => <div className={"custom-marker"}><p>{text}</p></div>;
+    
+    let GoogleMapsMarkers = this.props.locations_data.map(location => (
       <CustomMarker
-        key={`marker_${location.name}`}
+        key={"marker_"+location.name}
         lat={location.location.lat}
         lng={location.location.lng}
         text={location.name}
       />
     ));
-
+    
     return (
       <GoogleMapReact
         defaultCenter={[this.props.locations_data[0].location.lat,this.props.locations_data[0].location.lng]}
-        defaultZoom="10"
-        layerTypes={['TrafficLayer', 'TransitLayer']}
+        defaultZoom={12}
         bootstrapURLKeys={{
-          key: "AIzaSyAh11iZaQSh0ycJjXsE2nm5784LkzyMA_A",
+          key: "AIzaSyDvPk7IVCdmEVXDHF9urU9DEB-FYnTpkcE",
           language: 'en'
-        }}
-      >
-        {GoogleMapsMarkers}
+        }}>
+      {GoogleMapsMarkers}
       </GoogleMapReact>
     );
   }

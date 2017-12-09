@@ -109,6 +109,28 @@ body {
   margin-top: 54px;
 }
 
+.map_container{
+  height: 700px;
+}
+
+.custom-marker{
+  height: 25px;
+  width: 25px;
+  color: white;
+  background: black;
+
+}
+
+.map_page>div{
+  display: inline-block;
+}
+.map_page>div:first{
+  width: 20%;
+  vertical-align: top;
+}
+.map_page>div:last-of-type{
+  width: 70%;
+}
 
 @media (max-width : 768px) {
   .navbar.navbar-inverse.navbar-fixed-top {
