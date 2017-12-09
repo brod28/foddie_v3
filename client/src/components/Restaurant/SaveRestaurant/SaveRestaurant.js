@@ -26,7 +26,7 @@ class SaveRestaurant extends Component {
     }
     getRestaurants(){
         let retVal;
-        if(localStorage.save_restaurants!=''){
+        if(localStorage.save_restaurants && localStorage.save_restaurants!=''){
             retVal= JSON.parse(localStorage.save_restaurants);
         }
         return retVal;
