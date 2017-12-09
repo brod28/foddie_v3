@@ -27,7 +27,7 @@ class Restaurant extends Component {
   }
 
   componentDidMount() {
-    let fakedata = true;
+    let fakedata = false;
     if (fakedata) {
       this.setState(this.getStateObject(restaurant));
 
