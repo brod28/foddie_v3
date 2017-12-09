@@ -1,0 +1,36 @@
+{
+  "name": "rev",
+  "version": "1.0.0",
+  "description": "rev",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+  },
+  "author": "Danil Skachkov <danil.skachkov@speaktoit.com> (https://api.ai)",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "deasync": "^0.1.10",
+    "ejs": "^1.0.0",
+    "express": "^4.13.4",
+    "json-query": "^2.2.2",
+    "node-tesseract": "^0.2.7",
+    "path": "^0.12.7",
+    "request": "^2.83.0",
+    "string-similarity": "^1.2.0",
+    "tesseract.js": "^1.0.10",
+    "yelp-v3": "^0.0.6"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brod28/apiai-webhook-sample-test.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/brod28/apiai-webhook-sample-test/issues"
+  },
+  "homepage": "https://github.com/brod28/apiai-webhook-sample-test#readme"
+}
