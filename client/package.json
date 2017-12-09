@@ -17,5 +17,5 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   },
-  "proxy": "https://foodieforfoodie.herokuapp.com/"
+  "proxy": "http://foodieforfoodie.herokuapp.com/"
 }
