@@ -8,6 +8,8 @@ const repositor_location = require('./repository/location.js');
 const context_common = require('./helpers/common.js');
 const restService = express();
 
+
+
 restService.use(bodyParser.json());
 
 // use res.render to load up an ejs view file
@@ -18,41 +20,41 @@ restService.use('/static', express.static('assets'))
 restService.get('/api/check_image', function (req, res) {
 
     let Tesseract = require('tesseract.js')
-   /*
-    Tesseract.recognize('assets/image-text1.jpg')
+    /*
+     Tesseract.recognize('assets/image-text1.jpg')
+         .then(function (result) {
+             console.log(result)
+         })
+         .catch(function (e) {
+             console.log(e)
+         })
+    */
+
+    Tesseract.recognize("assets/image-text1.jpg", {
+        lang: 'eng',
+        tessedit_char_blacklist: 'e'
+    })
+        .progress(function (message) {
+            console.log(message)
+        })
         .then(function (result) {
             console.log(result)
         })
         .catch(function (e) {
             console.log(e)
-        })
-   */
-  
-    Tesseract.recognize("assets/image-text1.jpg", {
-        lang: 'eng',
-        tessedit_char_blacklist: 'e'
-    })
-        .progress(function (message) { 
-            console.log(message) 
-        })
-        .then(function (result) { 
-            console.log(result) 
-        }) 
-        .catch(function (e) { 
-            console.log(e) 
         });
 });
 
 
 restService.get('/api/ext_config', function (req, res) {
-    let retVal=[{
-        type:"include",
-        pattern:'restaurant',
-        text:'Check It'
+    let retVal = [{
+        type: "include",
+        pattern: 'restaurant',
+        text: 'Check It'
     }];
-    
+
     res.json({ data: retVal });
-});    
+});
 restService.get('/api/search', function (req, res) {
     console.log("request search with for " + req.param('name'))
     let request = {
@@ -64,16 +66,44 @@ restService.get('/api/search', function (req, res) {
 });
 
 restService.get('/api/reviews', function (req, res) {
-
-
     console.log("request review with for " + req.param('name'))
+    let myFirstPromise = new Promise((resolve, reject) => {
+        console.log("start promise request review with for " + req.param('name'))
+        setTimeout(function () {
+            console.log("start after time out request review with for " + req.param('name'))
+            let request = {
+                name: req.param('name')
+            };
+            repositor_review.get_reviews(request);
+            resolve("Success!"); // Yay! Everything went well!
+            console.log("end promise request review with for " + req.param('name'))
+        }, 250);
+    });
+
+    myFirstPromise.then((successMessage) => {
+        // successMessage is whatever we passed in the resolve(...) function above.
+        // It doesn't have to be a string, but if it is only a succeed message, it probably will be.
+        console.log("finalize promise request review with for " + req.param('name'))
+    });
+
+    // console.log("request review end with " + JSON.stringify(retVal))
+    res.json({ result: "ok" });
+});
+
+restService.get('/api/ping_reviews', function (req, res) {
+
+
     let request = {
         name: req.param('name')
     };
-    let retVal = repositor_review.get_reviews(request);
+    let retVal = repositor_review.get_cache_reviews(request);
 
-    // console.log("request review end with " + JSON.stringify(retVal))
-    res.json(retVal);
+    if(retVal){
+        res.json(retVal);
+    }
+    else{
+        res.status(204).send("doesn't have the data yet");
+    }
 });
 
 const path = require('path');

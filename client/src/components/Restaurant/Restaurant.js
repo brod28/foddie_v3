@@ -36,8 +36,34 @@ class Restaurant extends Component {
       fetch('/api/reviews?name=' + this.props.name)
         .then(res =>
           res.json())
-        .then(restaurant => {
-          this.setState(this.getStateObject(restaurant));
+        .then(response => {
+          if (response.result == "ok") {
+            let counter = 0;
+            console.log("triggerded");
+            let fetch_r = () =>
+              fetch('/api/ping_reviews?name=' + this.props.name)
+                .then(res => {
+                  console.log("fetch for "+this.props.name+" http result "+res.status+" try number"+counter)
+                  if (res.status == 200) {
+                    return res.json();
+                  }
+                  else {
+                    if (counter < 30) {
+                      setTimeout(function () {
+                        fetch_r();
+                        counter++; 
+                      }, 1000); 
+                    }
+
+                  }
+                })
+                .then(restaurant => {
+                  if (restaurant) {
+                    this.setState(this.getStateObject(restaurant));
+                  }
+                })
+            fetch_r();
+          }
         });
 
     }

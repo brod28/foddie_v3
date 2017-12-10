@@ -26,6 +26,10 @@ module.exports = {
     PushToCache(name,obj) {
         cache[name]=obj;
     },
+    get_cache_reviews(request) {
+        let retVal = this.IsInCache(request.name);
+        return retVal;
+    },        
     get_reviews(request) {
         console.log('start get data ' + new Date().getSeconds());
 
@@ -165,7 +169,8 @@ module.exports = {
 
                 promises.push(new Promise(function (resolve, reject) {
                     setTimeout(function () {
-                        console.log("start foursquare" + new Date().getSeconds());
+                  
+                  console.log("start foursquare" + new Date().getSeconds());
                         try {
                             let foursquare_review = foursquare_repository.get_foursquare(GoogleLocationInformation.metadata);
                             retVal.reviews = retVal.reviews.concat(foursquare_review);
@@ -175,7 +180,8 @@ module.exports = {
                         }
                         resolve('Success!');
                         console.log("end foursquare" + new Date().getSeconds());
-                    }, 151)
+                
+                         }, 151)
                 }));
 
 

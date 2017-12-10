@@ -12,12 +12,14 @@ module.exports = {
         try{
             json=getId(metadata,request,metadata.name);
             foursquare_id=json.response.venues[0].id
+            console.log("finished foursquare id for "+metadata.name+" "+e.message)
         }
         catch(e){
             try{
                 console.log("failed foursquare id for "+metadata.name+" "+e.message)
                 json=getId(metadata,request,metadata.facebook_name);
                 foursquare_id=json.response.venues[0].id
+                console.log("finished with facebook for foursquare id for "+metadata.name+" "+e.message)
             }
             catch(ex){
                 console.log("failed foursquare id for "+metadata.website+" "+ex.message+ex.stack)
@@ -63,11 +65,14 @@ module.exports = {
             }
         });
 
+        console.log('detais foursquare is going to wait');
+        
+        require('deasync').loopWhile(()=>{
+            return !json_photos || !json_tips;
+        });
 
-        while (!json_photos || !json_tips) {
-            require('deasync').sleep(250);
-        }
-
+        console.log('detais foursquare finished');
+        
         let retval = []
         try {
             let menu_url;
@@ -212,11 +217,10 @@ let getId=(metadata,request,name)=>{
             json = JSON.parse(body);
         }
     });
-
-    while (!json) {
-        require('deasync').sleep(250);
-    }
-
+    require('deasync').loopWhile(()=>{
+        return !json;
+    });
+    
 
     return json;
 

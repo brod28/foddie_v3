@@ -23,9 +23,11 @@ module.exports = {
     //                console.log(body);
                 }
             });
-            while(source === undefined) {
-                require('deasync').sleep(1000);
-            }
+            require('deasync').loopWhile(()=>{
+                return source === undefined;
+            });
+    
+            
             return source;
         },
         request_post(req){
@@ -43,9 +45,10 @@ module.exports = {
                     //console.log(body);
                 }
             });
-            while(source === undefined) {
-                require('deasync').sleep(1000);
-            }
+            require('deasync').loopWhile(()=>{
+                return source === undefined;
+            });
+    
             return source;
         }
     }
