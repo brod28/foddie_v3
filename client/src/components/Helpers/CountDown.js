@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
 class CountDown extends Component {
-    constructor() {
-      super();
+    constructor(props) {
+      super(props);
       this.state = { time: {}, seconds: 15 };
       this.timer = 0;
       this.startTimer = this.startTimer.bind(this);

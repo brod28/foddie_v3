@@ -25,7 +25,10 @@ class App extends Component {
       
       <Router>
         <div className="App">
-          <Route path="/myplaces" render={({ match }) => (
+          <Route path="/myplaces/:places" render={({ match }) => (
+            <MyPlaces places={match.params.places}/>
+          )} />
+          <Route exact path="/myplaces" render={({ match }) => (
             <MyPlaces />
           )} />
           <Route path="/search/:name" render={({ match }) => (

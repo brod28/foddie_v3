@@ -65,12 +65,8 @@ class SaveRestaurant extends Component {
         return (
             (
                 <div>
-                    <p>
-                        {this.props.restaurant.name}
-                    </p>
-                    {save_render}
+                 {save_render}
                 </div>
-
             )
         )
     }
