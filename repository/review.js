@@ -26,7 +26,7 @@ module.exports = {
         let retVal;
         let isDone=false;
         const AWS = require('aws-sdk');
-        AWS.config.loadFromPath('./config.json');
+        AWS.config.loadFromPath('./config1.json');
         const s3 = new AWS.S3(); // Pass in opts to S3 if necessary
         
         var getParams = {
@@ -52,7 +52,7 @@ module.exports = {
     },
     PushToCache(name,obj) {
         let AWS = require('aws-sdk');
-        AWS.config.loadFromPath('./config.json');
+        AWS.config.loadFromPath('./config1.json');
         
         let s3 = new AWS.S3();
         
