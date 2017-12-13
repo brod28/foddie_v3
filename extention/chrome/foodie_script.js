@@ -24,14 +24,8 @@ function dompath( element )
 
 var help_me = function () {
     let path=dompath(last_element.toElement);
-    let sibling=document.querySelectorAll(path)
-    let locations=[];
-    sibling.forEach(element=>{
-        locations.push(element.innerText.trim());
-    });
-    alert(locations.join('||'));
-    console.log('foodies help_me started');
-    console.log('foodies getSelectionText defined');
+    console.log("help me past is "+path);
+    track(path);
     var iframe = document.getElementById("foodie_to_foodie_iframe")
     if (iframe == undefined) {
         iframe = document.createElement("iframe");
@@ -59,15 +53,7 @@ let addButton = function (text) {
   addButton('checkeat !!!');
 
   
-/*
-foodie_config.data.forEach(function (element) {
-    if (element.type == "include") {
-        if (window.location.href.includes(element.pattern)) {
-            is_button = true;
-            console.log('foodies foodie_script button is there');
-        }
-    }
-})*/
+
 function doSomethingWithSelectedText(e) {
 
     if (window.getSelection().toString() != '' & e.path[0].className!='foodie_to_foodie_button') {
@@ -104,23 +90,35 @@ let markAllRestaurants=function(){
             }
         })
         if(path){
-            let sibling=document.querySelectorAll(path)
-            let locations=[];
-            sibling.forEach(element=>{
-                locations.push(element.innerText.trim());
-            });
-            var iframe = document.getElementById("foodie_to_foodie_iframe_track")
-            if (iframe == undefined) {
-                iframe = document.createElement("img");
-                iframe.setAttribute("id", "foodie_to_foodie_iframe_track");
-                iframe.setAttribute("style", "width:100px;position: fixed;top: 0px;left: 100px;height:100%;overflow: auto; z-index: 21474836;background-color:whitesmoke;");
-                document.body.insertBefore(iframe, document.body.firstChild);
-            }
-            iframe.src = 'http://localhost:5000/api/tracker?location=london&places='+encodeURIComponent(locations.join('||'))+"&refer="+encodeURIComponent(window.location.href);
+            console.log("automatic past is "+path);
+            track(path);
         }
     }
 } 
 
+
+let track=(path)=>{
+    let sibling=document.querySelectorAll(path)
+    let locations=[];
+    sibling.forEach(element=>{
+        locations.push(element.innerText.trim());
+    });
+    if(locations.length>0){
+        var iframe = document.getElementById("foodie_to_foodie_iframe_track")
+        if (iframe == undefined) {
+            iframe = document.createElement("img");
+            iframe.setAttribute("id", "foodie_to_foodie_iframe_track");
+            iframe.setAttribute("style", "width:3px;position: fixed;top: 0px;left: 3px;height:100%;overflow: auto; z-index: 21474836;background-color:whitesmoke;");
+            document.body.insertBefore(iframe, document.body.firstChild);
+        }
+        iframe.src = 'https://foodieforfoodie.herokuapp.com/api/tracker?location=london&places='+encodeURIComponent(locations.join('||'))+"&refer="+encodeURIComponent(window.location.href);
+        console.log(locations.join(',')+" locations in path "+path);        
+    }
+    else{
+        console.log("no locations in path "+path);        
+    }
+
+}
 
 let isMarkAllRestaurants=false;
 // A $( document ).ready() block.
