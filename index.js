@@ -65,6 +65,26 @@ restService.get('/api/search', function (req, res) {
     res.json({ data: retVal });
 });
 
+restService.get('/api/tracker', function (req, res) {
+    console.log("request tracker with for " + req.param('places'))
+    console.log("request tracker with for " + req.param('location'))
+    console.log("request tracker with for " + req.param('refer'))
+    req.param('places').split('||').forEach(element=>{
+        let request = require('request');
+        console.log('traker:'+'http://localhost:5000/api/ping_reviews?name='+element);
+        request({
+            url: 'http://localhost:5000/api/reviews?name='+element,
+            method: 'GET'
+        }, function (err, res, body) {
+            console.log('traker '+element + " for "+ body);
+            console.log('traker '+element + " for "+ err);
+        });        
+    })
+    res.json({ data: "ok" });
+});
+
+
+
 restService.get('/api/reviews', function (req, res) {
     console.log("request review with for " + req.param('name'))
     let myFirstPromise = new Promise((resolve, reject) => {

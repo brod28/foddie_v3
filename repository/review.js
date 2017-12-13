@@ -14,17 +14,68 @@ const tripexpert_repository = require('./sources/tripexpert_repository');
 
 const cache = [];
 
+
+
+//{ "accessKeyId": 'AKIAJ76F3YHCSV4MVYAQ', "secretAccessKey": '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' }
+
+
+
 module.exports = {
 
     IsInCache(name) {
         let retVal;
-        if (cache[name]) {
-            retVal = cache[name];
+        let isDone=false;
+        const AWS = require('aws-sdk');
+        AWS.config.loadFromPath('./config.json');
+        const s3 = new AWS.S3(); // Pass in opts to S3 if necessary
+        
+        var getParams = {
+            Bucket: 'checkeat.foodie', // your bucket name,
+            Key: name // path to the object you're looking for
         }
+        
+        s3.getObject(getParams, function(err, data) {
+            // Handle any error and exit
+            if (!err){
+                retVal = JSON.parse(data.Body.toString('utf-8')); // Use the encoding necessary
+            }  
+            isDone=true;
+        });
+
+
+        require('deasync').loopWhile(()=>{
+            return !isDone;
+        });
+
+
         return retVal;
     },
     PushToCache(name,obj) {
-        cache[name]=obj;
+        let AWS = require('aws-sdk');
+        AWS.config.loadFromPath('./config.json');
+        
+        let s3 = new AWS.S3();
+        
+        // Bucket names must be unique across all S3 users
+        
+        var myBucket = 'checkeat.foodie';
+        
+        let params = {Bucket: myBucket, Key: name, Body:JSON.stringify(obj)};
+        
+             s3.putObject(params, function(err, data) {
+        
+                 if (err) {
+        
+                     console.log(err)
+        
+                 } else {
+        
+                     console.log("Successfully uploaded data to myBucket/myKey");
+        
+                 }
+        
+              });        
+
     },
     get_cache_reviews(request) {
         let retVal = this.IsInCache(request.name);

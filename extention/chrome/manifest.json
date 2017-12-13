@@ -3,14 +3,34 @@
   "description": "foodie",
   "version": "1.0.0",
   "manifest_version": 2,
-  "content_scripts":          [ {
-    "js":       [ "injector.js" ],
-    "matches":  [   "https://*/*"
-    ]}],
-  "icons": {"128": "icon_128.png"},
+  "browser_action": {
+    "default_icon": {                    // optional
+      "16": "icon_128.png"         // optional
+    },
+    "default_title": "checkeat",      // optional; shown in tooltip
+    "default_popup": "image.html"        // optional
+  },
+  "content_scripts": [
+    {
+      "js": [
+        "injector.js"
+      ],
+      "matches": [
+        "https://*/*"
+      ]
+    }
+  ],
+
   "permissions": [
     "https://foodieforfoodie.herokuapp.com/*",
-    "storage"
+    "http://localhost:5000/*",
+    "http://localhost:3000/*",
+    "storage",
+    "tabs",
+    "webNavigation",
+    "activeTab"
   ],
-  "web_accessible_resources": ["foodie_script.js"]
+  "web_accessible_resources": [
+    "foodie_script.js","jquery-1.10.2.js"
+  ]
 }

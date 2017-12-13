@@ -20,20 +20,37 @@ console.log('foodies extention started');
 
 
 
-
 //alert(window.location.href);
+/*
 var xhr = new XMLHttpRequest();
 xhr.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      var script = document.createElement('script');
-      script.innerHTML  = 'var foodie_config='+this.responseText;
-      document.body.insertBefore (script, document.body.firstChild);
-      var script = document.createElement('script');
-      script.src = chrome.extension.getURL('foodie_script.js');
-      document.body.insertBefore (script, document.body.firstChild);
-      console.log('foodies foodie_script added');
-      console.log('foodies extention ended');
+  alert(2);
+  if (this.readyState == 4 && this.status == 200) {
+    alert(3);
+    
           }
   };
 xhr.open("GET", 'https://foodieforfoodie.herokuapp.com/api/ext_config', true);
 xhr.send();
+
+
+
+var script = document.createElement('script');
+script.innerHTML  = 'var foodie_config='+this.responseText;
+document.body.insertBefore (script, document.body.firstChild);
+var script = document.createElement('script');
+*/
+
+
+var script1 = document.createElement('script');
+script1.src = chrome.extension.getURL('foodie_script.js');
+document.body.insertBefore (script1, document.body.firstChild);
+
+var script = document.createElement('script');
+script.src = chrome.extension.getURL('jquery-1.10.2.js');
+document.body.insertBefore (script, document.body.firstChild);
+
+
+console.log('foodies foodie_script added');
+console.log('foodies extention ended');
+
