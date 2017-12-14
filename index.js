@@ -7,7 +7,7 @@ const repositor_review = require('./repository/review.js');
 const repositor_location = require('./repository/location.js');
 const context_common = require('./helpers/common.js');
 const restService = express();
-
+require('dotenv').config()
 
 
 restService.use(bodyParser.json());
@@ -70,6 +70,7 @@ restService.get('/api/tracker', function (req, res) {
     console.log("request tracker with for " + req.param('location'))
     console.log("request tracker with for " + req.param('refer'))
     req.param('places').split('||').forEach(element=>{
+        element=element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i,"");
         let request = require('request');
         console.log('traker : '+'https://foodieforfoodie.herokuapp.com/api/ping_reviews?name='+element);
         request({

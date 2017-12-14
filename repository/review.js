@@ -22,8 +22,8 @@ module.exports = {
         let retVal;
         let isDone=false;
         const AWS = require('aws-sdk');
-        AWS.config.accessKeyId = "AKIAIFSJMOV"+"2EMORJX2Q";
-        AWS.config.secretAccessKey = "vOOjj2LtXGYD"+"LFRsd0JY9xSo"+"Yl/7uOY5axw7EO/W";
+        AWS.config.accessKeyId = process.env.AWS_ACCESSKEYID;
+        AWS.config.secretAccessKey = process.env.AWS_SECRETACCESSKEY;
         const s3 = new AWS.S3(); // Pass in opts to S3 if necessary
         
         var getParams = {
@@ -49,8 +49,8 @@ module.exports = {
     },
     PushToCache(name,obj) {
         let AWS = require('aws-sdk');
-        AWS.config.accessKeyId = "AKIAIFSJMOV"+"2EMORJX2Q";
-        AWS.config.secretAccessKey = "vOOjj2LtXGYD"+"LFRsd0JY9xSo"+"Yl/7uOY5axw7EO/W";
+        AWS.config.accessKeyId = process.env.AWS_ACCESSKEYID;
+        AWS.config.secretAccessKey = process.env.AWS_SECRETACCESSKEY;
         
         let s3 = new AWS.S3();
         
@@ -68,7 +68,7 @@ module.exports = {
         
                  } else {
         
-                     console.log("Successfully uploaded data to myBucket/myKey");
+                     console.log("Successfully uploaded data to Bucket "+myBucket +" myKey:"+name);
         
                  }
         
