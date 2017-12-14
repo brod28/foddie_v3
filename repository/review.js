@@ -11,6 +11,7 @@ const rest_repository = require('./sources/rest_repository');
 const facebook_instagram_repository = require('./sources/facebook_instagram_repository');
 const google_repository = require('./sources/google_repository');
 const tripexpert_repository = require('./sources/tripexpert_repository');
+const log = require("./helpers/common.js").log;
 
 const cache = [];
 
@@ -89,6 +90,7 @@ module.exports = {
 
         // creating object to return
         if (!retVal) {
+            log.information("start get data for "+request.name);
             retVal = {
                 metadata: undefined,
                 reviews: []
@@ -99,6 +101,7 @@ module.exports = {
             let GoogleLocationBasicInformation;
             try {
                 GoogleLocationBasicInformation = locationRepository.search({ name: request.name })[0];
+                log.information("passed google search"+GoogleLocationBasicInformation);
             }
             catch (e) {
                 console.log("google for " + request.name + " search did work error:" + e.message + e.stack)

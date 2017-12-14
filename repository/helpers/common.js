@@ -25,9 +25,9 @@ module.exports = {
             }, function (error, response, body) {
                 source = body;
                 if(error==undefined || body=='' || response.statusCode!=200){
-                    this.log.information(req.url +" error is"+error)
-                    this.log.information(req.url +" response is"+response)
-                    this.log.information(req.url +" body is"+body)
+                    require("./common.js").log.information(req.url +" error is"+error)
+                    require("./common.js").log.information(req.url +" response is"+response)
+                    require("./common.js").log.information(req.url +" body is"+body)
                 }
             });
             require('deasync').loopWhile(()=>{
@@ -47,9 +47,9 @@ module.exports = {
             }, function (error, response, body) {
                 source = body;
                 if(error==undefined || body=='' || response.statusCode!=200){
-                    this.log.information(req.url +" error is"+error)
-                    this.log.information(req.url +" response is"+response)
-                    this.log.information(req.url +" body is"+body)
+                    require("./common.js").log.information(req.url +" error is"+error)
+                    require("./common.js").log.information(req.url +" response is"+response)
+                    require("./common.js").log.information(req.url +" body is"+body)
                 }
             });
             require('deasync').loopWhile(()=>{

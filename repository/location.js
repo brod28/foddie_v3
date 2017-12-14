@@ -1,7 +1,7 @@
 'use strict';
 const context_common = require('./helpers/common.js');
 const jsonQuery = require('json-query')
-
+const log = require("./helpers/common.js").log;
 
 module.exports = {
     search(req){
@@ -17,12 +17,14 @@ function get_google(name,location){
         };
         let response=context_common.http.request_get(get_request)
         let json;
+        log.information("google search result for "+name+" "+response)
         json=JSON.parse(response);
         json.predictions.forEach(function(element) {
             let location={
                 place_id:element.place_id,
                 description:element.description
             };
+            log.information("google search specific result for "+name+" "+element.description)
             retVal.push(location);
         });
         }
