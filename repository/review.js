@@ -16,17 +16,14 @@ const cache = [];
 
 
 
-//{ "accessKeyId": 'AKIAJ76F3YHCSV4MVYAQ', "secretAccessKey": '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' }
-
-
-
 module.exports = {
 
     IsInCache(name) {
         let retVal;
         let isDone=false;
         const AWS = require('aws-sdk');
-        AWS.config.loadFromPath('./config1.json');
+        AWS.config.accessKeyId = "AKIAIFSJMOV"+"2EMORJX2Q";
+        AWS.config.secretAccessKey = "vOOjj2LtXGYD"+"LFRsd0JY9xSo"+"Yl/7uOY5axw7EO/W";
         const s3 = new AWS.S3(); // Pass in opts to S3 if necessary
         
         var getParams = {
@@ -52,7 +49,8 @@ module.exports = {
     },
     PushToCache(name,obj) {
         let AWS = require('aws-sdk');
-        AWS.config.loadFromPath('./config1.json');
+        AWS.config.accessKeyId = "AKIAIFSJMOV"+"2EMORJX2Q";
+        AWS.config.secretAccessKey = "vOOjj2LtXGYD"+"LFRsd0JY9xSo"+"Yl/7uOY5axw7EO/W";
         
         let s3 = new AWS.S3();
         
