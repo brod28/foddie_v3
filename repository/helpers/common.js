@@ -1,6 +1,13 @@
 'use strict';
 
 module.exports = {
+    log:{
+        information:function (value) {
+            if(process.env.LOG_INFOMAION){
+                console.log(value);
+            }
+          }
+        },
     helper:{
         isFloat:function (value) {
             return !isNaN(value) && 
@@ -18,9 +25,9 @@ module.exports = {
             }, function (error, response, body) {
                 source = body;
                 if(error==undefined || body=='' || response.statusCode!=200){
-//                    console.log(error);
-  //                  console.log(response);
-    //                console.log(body);
+                    this.log.information(req.url +" error is"+error)
+                    this.log.information(req.url +" response is"+response)
+                    this.log.information(req.url +" body is"+body)
                 }
             });
             require('deasync').loopWhile(()=>{
@@ -40,9 +47,9 @@ module.exports = {
             }, function (error, response, body) {
                 source = body;
                 if(error==undefined || body=='' || response.statusCode!=200){
-                 //   console.log(error);
-                   // console.log(response);
-                    //console.log(body);
+                    this.log.information(req.url +" error is"+error)
+                    this.log.information(req.url +" response is"+response)
+                    this.log.information(req.url +" body is"+body)
                 }
             });
             require('deasync').loopWhile(()=>{

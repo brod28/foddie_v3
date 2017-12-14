@@ -1,5 +1,5 @@
 'use strict';
-const context_common = require('../helpers/common.js');
+const context_common = require('./helpers/common.js');
 const locationRepository = require('./location.js');
 const jsonQuery = require('json-query')
 
@@ -22,8 +22,8 @@ module.exports = {
         let retVal;
         let isDone=false;
         const AWS = require('aws-sdk');
-        AWS.config.accessKeyId = process.env.AWS_ACCESSKEYID;
-        AWS.config.secretAccessKey = process.env.AWS_SECRETACCESSKEY;
+        AWS.config.accessKeyId = process.env.AWS_ACCESS_KEY_ID;
+        AWS.config.secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
         const s3 = new AWS.S3(); // Pass in opts to S3 if necessary
         
         var getParams = {
@@ -36,6 +36,9 @@ module.exports = {
             if (!err){
                 retVal = JSON.parse(data.Body.toString('utf-8')); // Use the encoding necessary
             }  
+            else{
+                console.log(err);  
+            }
             isDone=true;
         });
 
@@ -49,8 +52,8 @@ module.exports = {
     },
     PushToCache(name,obj) {
         let AWS = require('aws-sdk');
-        AWS.config.accessKeyId = process.env.AWS_ACCESSKEYID;
-        AWS.config.secretAccessKey = process.env.AWS_SECRETACCESSKEY;
+        AWS.config.accessKeyId = process.env.AWS_ACCESS_KEY_ID;
+        AWS.config.secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
         
         let s3 = new AWS.S3();
         

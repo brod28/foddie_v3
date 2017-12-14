@@ -1,5 +1,5 @@
 'use strict';
-const context_common = require('../../helpers/common.js');
+const context_common = require('../helpers/common.js');
 
 const jsonQuery = require('json-query')
 

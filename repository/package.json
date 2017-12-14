@@ -1,0 +1,27 @@
+{
+  "name": "rev",
+  "version": "1.0.0",
+  "description": "rev",
+  "author": "Danil Skachkov <danil.skachkov@speaktoit.com> (https://api.ai)",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "aws-sdk": "^2.4.8",
+    "body-parser": "^1.17.2",
+    "deasync": "^0.1.10",
+    "dotenv": "^4.0.0",
+    "json-query": "^2.2.2",
+    "request": "^2.83.0",
+    "string-similarity": "^1.2.0",
+    "yelp-v3": "^0.0.6"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brod28/apiai-webhook-sample-test.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/brod28/apiai-webhook-sample-test/issues"
+  },
+  "homepage": "https://github.com/brod28/apiai-webhook-sample-test#readme"
+}

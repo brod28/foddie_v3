@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 
 const repositor_review = require('./repository/review.js');
 const repositor_location = require('./repository/location.js');
-const context_common = require('./helpers/common.js');
+const context_common = require('./repository/helpers/common.js');
 const restService = express();
 require('dotenv').config()
 
@@ -74,7 +74,7 @@ restService.get('/api/tracker', function (req, res) {
         let request = require('request');
         console.log('traker : '+'https://foodieforfoodie.herokuapp.com/api/ping_reviews?name='+element);
         request({
-            url: 'https://foodieforfoodie.herokuapp.com/api/reviews?name='+element,
+            url: 'https://fwwzrx3aa2.execute-api.us-east-1.amazonaws.com/prod/my-service-dev-hello?name='+element,
             method: 'GET'
         }, function (err, res, body) {
             console.log('traker '+element + " for "+ body);
