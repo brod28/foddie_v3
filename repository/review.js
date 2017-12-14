@@ -249,6 +249,7 @@ module.exports = {
                 console.log("google for " + request.name + " didn't find anything")
             }
             this.PushToCache(request.name,retVal);
+            this.PushToCache(GoogleLocationInformation.metadata.description,retVal);
         }
 
         return retVal;
