@@ -41,6 +41,7 @@ document.body.insertBefore (script, document.body.firstChild);
 var script = document.createElement('script');
 */
 
+console.log('foodies inhector starts');
 
 var script1 = document.createElement('script');
 script1.src = chrome.extension.getURL('foodie_script.js');

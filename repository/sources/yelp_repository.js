@@ -50,20 +50,24 @@ module.exports = {
     
         let businessYelp;
         let reviewsYelp;
+        let isDoneBusinessYelp=false;
+        let isDoneReviewsYelp=false;
         // search for yelp business details and reviews (2 different calls)
         try {
             yelp.businesses(yelp_id, function (error, data) { 
                 businessYelp = data; 
+                isDoneBusinessYelp=true;
             });
     
     
             yelp.businessesReviews(yelp_id, function (error, data) { 
                 reviewsYelp = data; 
+                isDoneReviewsYelp=true;
             });
     
-            while (businessYelp === undefined || reviewsYelp === undefined) {
-                require('deasync').runLoopOnce();
-            }
+            require('deasync').loopWhile(()=>{
+                return !isDoneBusinessYelp || !isDoneReviewsYelp;
+            });
         }
         catch (e) {
             console.log("failed yelp get business data or reviews " + e.message + e.stack);
@@ -96,6 +100,7 @@ module.exports = {
 }
 
 let get_id=(yelp,name,metadata)=>{
+    let isDone=false;
     let businessMatchYelp;
     yelp.search({
         term: name,
@@ -103,11 +108,13 @@ let get_id=(yelp,name,metadata)=>{
     },
         function (error, data) {
             businessMatchYelp = data;
+            isDone=true;
         }
     );
 
-    while (businessMatchYelp === undefined) {
-        require('deasync').runLoopOnce();
-    }
+    require('deasync').loopWhile(()=>{
+        return !isDone;
+    });
+
     return businessMatchYelp;
 }

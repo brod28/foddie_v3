@@ -9,7 +9,6 @@ const context_common = require('./repository/helpers/common.js');
 const restService = express();
 require('dotenv').config()
 
-
 restService.use(bodyParser.json());
 
 // use res.render to load up an ejs view file

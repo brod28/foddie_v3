@@ -3,20 +3,13 @@
   "description": "foodie",
   "version": "1.0.0",
   "manifest_version": 2,
-  "browser_action": {
-    "default_icon": {                    // optional
-      "16": "icon_128.png"         // optional
-    },
-    "default_title": "checkeat",      // optional; shown in tooltip
-    "default_popup": "image.html"        // optional
-  },
   "content_scripts": [
     {
       "js": [
         "injector.js"
       ],
       "matches": [
-        "https://*/*"
+        "https://*/*","http://*/*"
       ]
     }
   ],
