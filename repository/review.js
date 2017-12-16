@@ -1,6 +1,6 @@
 'use strict';
 const context_common = require('./helpers/common.js');
-const DAL = require('../DAL/DAL.js');
+const DAL = require('./DAL/DAL.js');
 const locationRepository = require('./location.js');
 const jsonQuery = require('json-query')
 
