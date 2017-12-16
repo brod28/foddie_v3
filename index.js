@@ -77,7 +77,9 @@ restService.get('/api/tracker', function (req, res) {
             method: 'GET'
         }, function (err, res, body) {
             console.log('traker '+element + " for "+ body);
-            console.log('traker '+element + " for "+ err);
+            if(err && err!=null){
+                console.log('traker '+element + " for "+ err);
+            }
         });        
     })
     res.json({ data: "ok" });
