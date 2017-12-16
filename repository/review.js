@@ -1,5 +1,6 @@
 'use strict';
 const context_common = require('./helpers/common.js');
+const DAL = require('../DAL/DAL.js');
 const locationRepository = require('./location.js');
 const jsonQuery = require('json-query')
 
@@ -40,68 +41,19 @@ module.exports = {
     },
     IsInCache(name) {
         name=this.ParseCacheName(name);
-        let retVal;
-        let isDone = false;
-        const AWS = require('aws-sdk');
-        AWS.config.accessKeyId = process.env.AWS_ACCESS_KEY_ID;
-        AWS.config.secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
-        const s3 = new AWS.S3(); // Pass in opts to S3 if necessary
-
-        var getParams = {
-            Bucket: 'checkeat.foodie', // your bucket name,
-            Key: name // path to the object you're looking for
-        }
-
-        s3.getObject(getParams, function (err, data) {
-            // Handle any error and exit
-            if (!err) {
-                retVal = JSON.parse(data.Body.toString('utf-8')); // Use the encoding necessary
-            }
-            else {
-                console.log(err.message);
-            }
-            isDone = true;
-        });
-
-
-        require('deasync').loopWhile(() => {
-            return !isDone;
-        });
-
-
+        let retVal=DAL.GetPlace(name);
         return retVal;
     },
     PushToCache(name, obj) {
         name=this.ParseCacheName(name);
         if(obj){
-            let AWS = require('aws-sdk');
-            AWS.config.accessKeyId = process.env.AWS_ACCESS_KEY_ID;
-            AWS.config.secretAccessKey = process.env.AWS_SECRET_ACCESS_KEY;
-    
-            let s3 = new AWS.S3();
-    
-            // Bucket names must be unique across all S3 users
-    
-            var myBucket = 'checkeat.foodie';
-    
-            let params = { Bucket: myBucket, Key: name, Body: JSON.stringify(obj) };
-    
-            s3.putObject(params, function (err, data) {
-    
-                if (err) {
-    
-                    console.log(err)
-    
-                } else {
-    
-                    console.log("Successfully uploaded data to Bucket " + myBucket + " myKey:" + name);
-    
-                }
-    
-            });
-                
+            obj=JSON.parse(JSON.stringify(obj).replaceAll('""','" "'));
+            let model={
+                reviews:obj,
+                place_full_name:name
+            }
+            DAL.AddPlace(model);
         }
-
     },
     get_cache_reviews(request) {
         let retVal = this.IsInCache(request.name);

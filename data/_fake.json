@@ -1,342 +1,240 @@
 {
     "metadata": {
-        "google_id": "ChIJ37AHt9MEdkgRDVY9ZuyydVA",
-        "address": "34 Rupert St, Soho, London W1D 6DN, UK",
-        "name": "The Palomar",
-        "phone_number": "020 7439 8777",
-        "area_near": "34 Rupert Street, London",
-        "description": "The Palomar, Rupert Street, London, United Kingdom",
-        "website": "http://thepalomar.co.uk/",
+        "google_id": "ChIJ-4xJz7AcdkgRt0jZLI7DAEU",
+        "address": "56A Shoreditch High St, London E1 6PQ, UK",
+        "name": "Pizza East",
+        "phone_number": "020 7729 1888",
+        "area_near": "56A Shoreditch High Street, London",
+        "description": "Pizza East, Shoreditch High Street, London, United Kingdom",
+        "website": "http://www.pizzaeast.com/",
         "location": {
-            "lat": 51.511214,
-            "lng": -0.132733
+            "lat": 51.5238239,
+            "lng": -0.07689069999999999
+        },
+        "facebook_name": "Pizza East",
+        "contant": {
+            "phone": "+442077291888",
+            "formattedPhone": "+44 20 7729 1888",
+            "twitter": "pizzaeast",
+            "instagram": "pizzaeast",
+            "facebook": "106185806127716",
+            "facebookUsername": "pizzaeast",
+            "facebookName": "Pizza East"
         }
     },
     "reviews": [
         {
-            "rating": 4.6,
+            "rating": 4.1,
             "number_of_reviews": "N/A",
             "source": "google",
             "reviews": [
                 {
-                    "rating": 1,
-                    "time": "a week ago",
-                    "text": "Called months ago to make a reservation since we are not from London and wanted to eat here for my husband's birthday.  I  was told to wait until 60 days. I emailed promptly 60 days prior (at 10:00 a.m.) since the site would not let me book and was told they were fully booked. They gave me a list of other restaurants to eat at. Disappointing attitude.  Will surely eat where my business is welcome and appreciated."
-                },
-                {
-                    "rating": 5,
-                    "time": "in the last week",
-                    "text": "Great food. Good vibe. The layout of the kitchen area does a good job of connecting you to the chefs and your food. Pricey, but as expected."
-                },
-                {
-                    "rating": 5,
-                    "time": "a week ago",
-                    "text": "Brilliant night sitting at the bar/kitchen top. Food is delicious and the head chef is very loud, energetic and entertaining - dont go there for a calming experience! \nWaited for 2h to get in but the guy managing the list was very good at updating us while we had a drink elsewhere - well worth the wait."
-                },
-                {
-                    "rating": 3,
-                    "time": "3 months ago",
-                    "text": "I liked the ambience in The Palomar. It's entertaining to eat at the bar watching cooks preparing your food. Service is quick and friendly. The place seems to be popular as there was a queue outside to get in at 10PM when we were leaving. The middle eastern food however was a mixed bag, some dishes were good, some not so. I liked the salads and octopus with chickpea mash. Jerusalem Mix was a bit of a hoax though, the plate full of fried onions and couple of pieces of chicken liver buried underneath it. £14.5 dish with no much food on the plate..."
+                    "rating": 4,
+                    "time": "2 weeks ago",
+                    "text": "There are lots of pizza joints out there these days, and this is one of the better ones.  I love the big, industrial space the restaurant sits in.  The pizza itself is as it should be - crispy, thin crusts, with savoury toppings including more exotic cheeses & meats -- beyond the usual goats cheese or mozzarella and pepperoni or parma ham.  Recommended venue for big tables as well - I had a table of 8 and the service was spot on."
                 },
                 {
                     "rating": 5,
                     "time": "a month ago",
-                    "text": "Great place to eat and nice friendly and very helpful staff. If don’t have a booking it’s worth the wait. Uncomfortable to seat and eat on a high chair around the bar but definitely worth the shot."
+                    "text": "We visited mid week at around 7pm. Wine was delicious. The food was on point and arrived within good time. A little crowded in the evening, but the vibe was good. Prices were reasonable for the fresh quality of food."
+                },
+                {
+                    "rating": 5,
+                    "time": "a month ago",
+                    "text": "Great pizzas for a decent price. The vibe is really good too, very casual. I was vegan and the time and was able to easily choose from various options. Also, they serve their red wine in a tumbler, which I love."
+                },
+                {
+                    "rating": 1,
+                    "time": "4 months ago",
+                    "text": "Having been a regular customer at Pizza East since it opened, I feel obliged to write a review. As it really has upset me that both the service and the management last Monday were a huge disappointment. Working around the corner, Pizza East has been the base for many meetings, staff training and celebrations. Therefore, when a close friend was leaving the country for good, we thought Pizza East would make the perfect send-off location. We couldn’t have been more wrong. Firstly, the waitress had terrible attitude, unapproachable and considering we were a group of adults celebrating she was not the person to be our host. Secondly, we specifically chose to dine on a Monday at Pizza East to receive the 50% off, using the Pizza East keyring. However, because we were a group of 9 rather than a group of 8 they would not honour that, even though we never knew this was an issue. You would assume that management would be able to make an executive decision and keep 9 happy customers, rather than having a black cloud of dissatisfaction post meal. Otherwise, we would have made a booking on another day of the week outside of the discount day. However, now we know not to return to Pizza East, as there is no customer loyalty in this restaurant or any form of understanding. Which has forced me to write a review, as I feel it is necessary for them to understand that having a customer who has been to your restaurant for years, is shocked by the service and communication we received on Monday. Luckily Pizza Pilgrims has opened seconds down the road."
+                },
+                {
+                    "rating": 5,
+                    "time": "2 weeks ago",
+                    "text": "We arrived around 7pm and had a couple beers outside in a food fair. After entering the atmosphere was great and the food and service very good. The prices are fair. A great place to go with a group of friends."
                 }
             ]
         },
         {
-            "rating": "N/A",
-            "number_of_reviews": "N/A",
-            "source": "foursquare",
-            "foursquare_id": "537504a8498e1fe2c8c4fa71",
-            "menu": {
-                "url": "http://thepalomar.co.uk/food/"
+            "rating": 4.4,
+            "number_of_reviews": 508,
+            "source": "facebook",
+            "facebook_id": "1813879718845438",
+            "reviews": []
+        },
+        {
+            "source": "instagram",
+            "instagram_id": "1813879718845438",
+            "reviews": [],
+            "photos": {
+                "url": "https://www.instagram.com/explore/locations/1813879718845438/",
+                "text": "foto by guests on"
             }
         },
         {
             "rating": "N/A",
             "number_of_reviews": "N/A",
             "source": "foursquare",
-            "foursquare_id": "537504a8498e1fe2c8c4fa71",
+            "foursquare_id": "4ad75c2df964a520cd0921e3",
+            "menu": {
+                "url": "https://foursquare.com/v/4ad75c2df964a520cd0921e3/device_menu"
+            }
+        },
+        {
+            "rating": "N/A",
+            "number_of_reviews": "N/A",
+            "source": "foursquare",
+            "foursquare_id": "4ad75c2df964a520cd0921e3",
             "photos": {
                 "photos": [
                     {
-                        "url": "https://igx.4sqi.net/img/general/height250/21539_JWf7PHdj-eEivR33dHlx4Oxdk1umjmhPjIqNJerRHjE.jpg"
+                        "url": "https://igx.4sqi.net/img/general/height250/52040_cJo-I9ADnse_XmiIoix2qCzcBSK56KX1xOKpkSq6NEk.jpg"
                     },
                     {
-                        "url": "https://igx.4sqi.net/img/general/height250/85624943_IOJYLMXsAg7vDroYyUmMHaxpu9k2--4zLww4FgQ0GNc.jpg"
+                        "url": "https://igx.4sqi.net/img/general/height250/1145374_nrbSwXpvGUoidpUQAiRwal8pGBSaZ3Bx13ifeEdgULk.jpg"
                     },
                     {
-                        "url": "https://igx.4sqi.net/img/general/height250/70583159_n6sPWLy_3XA0rYK31Qm_COKpy6gHvpzCUxhroSOh9aI.jpg"
+                        "url": "https://igx.4sqi.net/img/general/height250/1145374_KeZKxq137doz4KQ06WOLI5t2Wl8lvtymTrqFUGvIh1M.jpg"
                     },
                     {
-                        "url": "https://igx.4sqi.net/img/general/height250/5091725_NMYU05HlqjHlUZGWJEqy-HUIjmIE90k7v76dXku1ZWk.jpg"
+                        "url": "https://igx.4sqi.net/img/general/height250/3210540_cx-S86f48XZI_zn-202bhTdyzBmT2NUequSm028vwwY.jpg"
                     },
                     {
-                        "url": "https://igx.4sqi.net/img/general/height250/53607471_SF-hXjqNbvIMKKnZ7MjOmMfUpk8jUZq9_BH4iAAbVUQ.jpg"
+                        "url": "https://igx.4sqi.net/img/general/height250/19129447_Mhe-ZGovL3kFh5HoMKclj2giznbvKVrY8jBymvPw7F8.jpg"
                     },
                     {
-                        "url": "https://igx.4sqi.net/img/general/height250/597118_0sabyc7AdKW4QlC5x6BUGrgn_RS70wNdEiqLCX-vO10.jpg"
+                        "url": "https://igx.4sqi.net/img/general/height250/89121_wPHmQP_TW1Y52xeGdyGpI4-zbdEBJbMQr_6MfKihbvU.jpg"
                     },
                     {
-                        "url": "https://igx.4sqi.net/img/general/height250/63216188_syspBWQ4ACc0TE7hbQREcTQ5ZfUUQblHa1ffdh89coQ.jpg"
+                        "url": "https://igx.4sqi.net/img/general/height250/52214017_o9poev8bZAIryUCvPBwvYHyckhmfRup2RUra20c1LlM.jpg"
                     },
                     {
-                        "url": "https://igx.4sqi.net/img/general/height250/63216188_WrMz5WN_fwTeGvv6TwB2Q7ytmF1Ug4ElnPKQvxrfZL0.jpg"
+                        "url": "https://igx.4sqi.net/img/general/height250/42082284_C6eEquZVzmbhD2vP9sxbaVFXMj8O3ITpfN2eUTifo3g.jpg"
                     }
                 ]
             }
         },
         {
-            "rating": "N/A",
-            "number_of_reviews": "N/A",
-            "source": "foursquare",
-            "foursquare_id": "537504a8498e1fe2c8c4fa71",
-            "reviews": [
-                {
-                    "time": 1497082439,
-                    "text": "If you like an interesting take on middle eastern food and specialty cocktail/mocktails head here. Friendly service. Gets really crowded so reservations recommended.",
-                    "photo_url": "https://igx.4sqi.net/img/general/height250/95579938_PZbCLwQeCHs3xdNKc7HlS0unbMhbcx62p5SfRU7tv_o.jpg"
-                },
-                {
-                    "time": 1431757412,
-                    "text": "Very nice food and great for sharing but I suggest only getting one meat dish as they're very intensely flavoured and heavy",
-                    "photo_url": "https://igx.4sqi.net/img/general/height250/319059_FwDSB6i7BI_clGnpxgjvdyFIYenuc6MfH_iHcmVuIbE.jpg"
-                },
-                {
-                    "time": 1472163410,
-                    "text": "If you don't book, count a 1 or 1.5 hour wait. Polenta, octo-hummus and kubaneh were amazing. Jerusalem mess for dessert is a must!",
-                    "photo_url": "https://igx.4sqi.net/img/general/height250/80757304_E5WPQWiyB22iyJFJsHtE5uOAasygWuyux24UZIqaYuI.jpg"
-                },
-                {
-                    "time": 1413418288,
-                    "text": "We came on their opening Saturday and I was probably the best meal out we've ever had. Simply brilliant, buzzy and tasty",
-                    "photo_url": "https://igx.4sqi.net/img/general/height250/96091016_Ltz90LMD_3Rr8hYxJ7NWTkc1c63MH9pBFWr_XIBsi_0.jpg"
-                },
-                {
-                    "time": 1468788262,
-                    "text": "Just go and eat everything. It is packed but servers are super nice and very well versed in all the great eats.",
-                    "photo_url": "https://igx.4sqi.net/img/general/height250/81374730_q9OIctqWAK1WgEJ5CauQZrC2uE7Pl72ocemdmondRu4.jpg"
-                },
-                {
-                    "time": 1443380161,
-                    "text": "Amazing food, tried 10 menu  itens and all were tasty! The Cauliflower steak and Seared Scallops are to die for!",
-                    "photo_url": "https://igx.4sqi.net/img/general/height250/139793839_IvxcKx8DpUZZlUaqtlgq6YU05ljJFZPX6PWosU2wp6E.jpg"
-                }
-            ]
-        },
-        {
-            "rating": 4.8,
-            "number_of_reviews": 366,
-            "source": "facebook",
-            "facebook_id": "215747375288497",
-            "reviews": []
-        },
-        {
             "source": "instagram",
-            "instagram_id": "215747375288497",
+            "instagram_id": "pizzaeast",
             "reviews": [],
             "photos": {
-                "url": "https://www.instagram.com/explore/locations/215747375288497/"
+                "url": "https://www.instagram.com/pizzaeast/?hl=en",
+                "text": "foto by owners on "
             }
         },
         {
-            "rating": "Top Choice",
-            "number_of_reviews": "N/A",
-            "source": "Lonely Planet",
-            "tripexpert_id": 520062,
-            "reviews": [],
-            "review_article": {
-                "url": "https://www.lonelyplanet.com/england/london/restaurants/palomar/a/poi-eat/1511762/358914",
-                "summary": "The 'Yiddish-style' chopped chicken liver pate, the Jerusalem-style polenta and the 'octo-hummus' are all fantastic, but portions are smallish, so you'll need to share.",
-                "by": ""
-            }
-        },
-        {
-            "rating": "Choice",
-            "number_of_reviews": "N/A",
-            "source": "Fodor's",
-            "tripexpert_id": 520187,
-            "reviews": [],
-            "review_article": {
-                "url": "http://www.fodors.com/world/europe/england/london/restaurants/reviews/palomar-107125820",
-                "summary": "It's Jerusalem meets Palestine meets Beirut meets a bonkers scenester vibe at this mad-as-a-hatter Israeli/Arab funky food party zone off Shaftesbury Avenue.",
-                "by": ""
-            }
-        },
-        {
-            "rating": "Choice",
-            "number_of_reviews": "N/A",
-            "source": "Fodor's",
-            "tripexpert_id": 599352,
-            "reviews": [],
-            "review_article": {
-                "url": "http://www.fodors.com/world/europe/england/london/restaurants/reviews/the-palomar-107125820",
-                "summary": "It's Jerusalem meets Palestine meets Beirut meets a bonkers scenester vibe at this Arab-Israeli funky food party zone.",
-                "by": ""
-            }
-        },
-        {
-            "rating": "Editor's Pick",
             "number_of_reviews": "N/A",
             "source": "Condé Nast Traveler",
-            "tripexpert_id": 786065,
+            "tripexpert_id": 417773,
             "reviews": [],
             "review_article": {
-                "url": "https://www.cntraveler.com/restaurants/london/the-palomar",
-                "summary": "This is where you'll find \"fantastic Middle-Eastern inflected dishes,\" according to Jeremy Lee, chef and co-owner of London's Quo Vadis.\n\n",
-                "by": ""
+                "url": "https://www.cntraveler.com/restaurants/london/pizza-east",
+                "summary": "Pizza East serves tasty pies and Italian small plates in an industrial-looking space.",
+                "by": " "
             }
         },
         {
             "rating": "4",
             "number_of_reviews": "N/A",
             "source": "Time Out",
-            "tripexpert_id": 286316,
+            "tripexpert_id": 286233,
             "reviews": [],
             "review_article": {
-                "url": "http://www.timeout.com/london/restaurants/palomar",
-                "summary": "Pulse-quickening dance music, free-flowing drink, vibrantly flavoured dishes.",
+                "url": "http://www.timeout.com/london/restaurants/pizza-east-shoreditch",
+                "summary": "The popularity of Pizza East, one of the first bastions of Shoreditch gentrification, hasn’t waned.",
                 "by": ""
             }
         },
         {
-            "rating": "0 Stars",
-            "number_of_reviews": "N/A",
-            "source": "Michelin Guide",
-            "tripexpert_id": 620605,
-            "reviews": [],
-            "review_article": {
-                "url": "https://www.viamichelin.com/web/Restaurant/Soho-W1D_6DN-Palomar-440350-41102",
-                "summary": "A hip slice of modern-day Jerusalem in the heart of theatreland, with a zinc kitchen counter running back to an intimate wood-panelled dining room.",
-                "by": ""
-            }
-        },
-        {
-            "number_of_reviews": "N/A",
-            "source": "Travel + Leisure",
-            "tripexpert_id": 597322,
-            "reviews": [],
-            "review_article": {
-                "url": "http://www.travelandleisure.com/travel-guide/london/restaurants/the-palomar",
-                "summary": "This spot just off London's heaving Shaftsbury Avenue offers an authentically buzzing atmosphere paired with even better food.",
-                "by": ""
-            }
-        },
-        {
+            "rating": "3.5",
             "number_of_reviews": "N/A",
             "source": "Zagat",
-            "tripexpert_id": 445242,
+            "tripexpert_id": 444971,
             "reviews": [],
             "review_article": {
-                "url": "https://www.zagat.com/r/the-palomar-london",
-                "summary": "Modern-day Jerusalem meets Japanese techniques and North African flavors at this Chinatown Eclectic with a 1930s vibe.",
+                "url": "https://www.zagat.com/r/pizza-east-london",
+                "summary": "It's \"always jam-packed\" at these \"trendy\", midpriced joints where diners break out of their \"pepperoni comfort zone\".",
+                "by": ""
+            }
+        },
+        {
+            "rating": "12",
+            "number_of_reviews": "N/A",
+            "source": "Gayot",
+            "tripexpert_id": 235867,
+            "reviews": [],
+            "review_article": {
+                "url": "http://www.gayot.com/restaurants/pizza-east-london-e1-6jj-uk_21lo091102.html",
+                "summary": "The restaurant in the spacious Tea Building is big and bold, with long tables for groups, an open kitchen and a bar in the centre.",
                 "by": ""
             }
         },
         {
             "number_of_reviews": "N/A",
-            "source": "The Guardian",
-            "tripexpert_id": 323804,
+            "source": "BlackBook",
+            "tripexpert_id": 210436,
             "reviews": [],
             "review_article": {
-                "url": "http://www.theguardian.com/lifeandstyle/2014/oct/12/the-palomar-restaurant-review-jay-rayner",
-                "summary": "It pulls on the traditions of the Mediterranean fringes without being overwhelmed by them, and it does so with a vigour and enthusiasm which are so utterly infectious.",
+                "summary": "Lively gourmet pizza hall at Soho House Shoreditch looks like an old Italian kitchen, complete with wooden cabinets and countertops.",
                 "by": ""
             }
         },
         {
-            "rating": "8.8",
-            "number_of_reviews": "N/A",
-            "source": "The Infatuation",
-            "tripexpert_id": 761681,
-            "reviews": [],
-            "review_article": {
-                "url": "https://www.theinfatuation.com/london/reviews/the-palomar",
-                "summary": "Palomar is a great restaurant throughout, but the almost all of this fun happens at the bar.",
-                "by": ""
-            }
-        },
-        {
-            "number_of_reviews": "N/A",
-            "source": "Not For Tourists",
-            "tripexpert_id": 500569,
-            "reviews": [],
-            "review_article": {
-                "url": "http://www.notfortourists.com/LD.aspx/London/Restaurants/The-Palomar?listingID=882903",
-                "summary": "Open-kitchen gastroexperimentation.",
-                "by": ""
-            }
-        },
-        {
-            "rating": 4.5,
-            "number_of_reviews": 63,
+            "rating": 3.5,
+            "number_of_reviews": 224,
             "source": "yelp",
-            "yelp_id": "the-palomar-restaurant-london",
+            "yelp_id": "pizza-east-london",
             "reviews": [
                 {
-                    "rating": 5,
-                    "time": "2017-08-19 00:26:25",
-                    "text": "The Palomar Restaurant was our last stop in during our trip in London, and it turned out to be the perfect choice. This is definitely one of those..."
+                    "rating": 4,
+                    "time": "2017-09-15 01:24:09",
+                    "text": "This is a very nice Pizzeria in the heart of Shoreditch.\nThe quality of the food is high. We started sharing delicious lamb meatball then we had one salami..."
                 },
                 {
-                    "rating": 5,
-                    "time": "2017-07-23 08:37:51",
-                    "text": "This is both one of the hottest and controversial Restos for middle eastern food. Barbary its slightly wallet friendlier sister resto seems to generate more..."
+                    "rating": 3,
+                    "time": "2017-10-18 07:16:13",
+                    "text": "Had dinner here on a Monday night (50% night) & must declare an interest inasmuch as my mate is on good terms with the staff therefore any waiting around or..."
                 },
                 {
-                    "rating": 5,
-                    "time": "2017-05-25 15:51:16",
-                    "text": "Put my name down for two at 6:30pm and was seated at 7:10pm (they estimated 8pm). I waited outside but they took my number down in case I wanted to walk..."
+                    "rating": 1,
+                    "time": "2017-08-12 07:44:46",
+                    "text": "By far the worst dining experience in many many years.\n\nNegatives\n- The bar area to wait while your table is ready is chaotic and slow. Maybe the concept is..."
                 }
             ]
         },
         {
-            "rating": "4.8",
-            "number_of_reviews": "152",
+            "rating": "4.2",
+            "number_of_reviews": "281",
             "source": "zomato",
-            "zomato_id": "6122355",
+            "zomato_id": "6104609",
             "reviews": [
                 {
-                    "rating": 5,
+                    "rating": 4.5,
                     "time": "4 months ago",
-                    "text": "Brilliant, bold flavors without any gimmicks. Rustic and hearty fare with a light touch. Desserts were divine. If this is what food tastes l..."
+                    "text": "Great place to eat it was busy on Monday because they have a half price offer on food with a fob. Get the fob. The pizza was really good and..."
                 },
                 {
-                    "rating": 3.5,
+                    "rating": 5,
                     "time": "6 months ago",
-                    "text": "Lovely lunch at The Palomar. The food is good with some items better than others. The bread was the highlight of the meal but at £6 each I ..."
-                },
-                {
-                    "rating": 5,
-                    "time": "7 months ago",
-                    "text": "The best meal I've had in London, perhaps in the past year. Everything was amazing. My favorites were the beet carpaccio, octo-hummous, and ..."
-                },
-                {
-                    "rating": 5,
-                    "time": "9 months ago",
-                    "text": "Could not fault a thing with this place. I loved everything. I wish I could eat their burnt aubergine everyday. And the lamb... oh the lamb...."
+                    "text": "One of my best meals in London!  Even after screwing up the mocktail I'd asked for, they gladly changed it and brought something better on t..."
                 },
                 {
                     "rating": 4.5,
-                    "time": "10 months ago",
-                    "text": "Kubaneh bread is a must to order. The bread is very soft and full of smell and taste. Everything was well seasoned and delicious. Definitely..."
+                    "time": "6 months ago",
+                    "text": "The place is really nice and beautiful and the food especially the pizzas are extremely tasty!   However is usually too full if you don't ha..."
+                },
+                {
+                    "rating": 5,
+                    "time": "6 months ago",
+                    "text": "Amazing pizzas! The crust is light and airy, delicious passion fruit and vodka cocktail, really really nice decor and setting, would love to..."
+                },
+                {
+                    "rating": 4,
+                    "time": "9 months ago",
+                    "text": "I visited Pizza East with the Eating London Food Tour to try their famous salted caramel chocolate tart. I didn't enjoy it as much as expect..."
                 }
             ]
-        },
-        {
-            "rating": "4.5",
-            "number_of_reviews": "1054",
-            "source": "www.tripadvisor.com",
-            "id": 0,
-            "reviews": []
-        },
-        {
-            "rating": "4.5",
-            "source": "www.timeout.com",
-            "id": 0,
-            "reviews": []
         }
     ]
 }

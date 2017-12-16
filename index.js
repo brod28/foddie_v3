@@ -1,4 +1,8 @@
 'use strict';
+String.prototype.replaceAll = function(search, replacement) {
+    var target = this;
+    return target.replace(new RegExp(search, 'g'), replacement);
+};
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -68,6 +72,7 @@ restService.get('/api/tracker', function (req, res) {
     console.log("request tracker with for " + req.param('places'))
     console.log("request tracker with for " + req.param('location'))
     console.log("request tracker with for " + req.param('refer'))
+    
     req.param('places').split('||').forEach(element=>{
         element=element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i,"");
         let request = require('request');
