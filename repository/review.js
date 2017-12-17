@@ -44,10 +44,11 @@ module.exports = {
         let retVal=DAL.GetPlace(name);
         return retVal;
     },
+
     PushToCache(name, obj) {
         name=this.ParseCacheName(name);
         if(obj){
-            obj=JSON.parse(JSON.stringify(obj).replaceAll('""','" "'));
+            obj=JSON.parse(context_common.helper.replaceAll(JSON.stringify(obj),'""','" "'));
             let model={
                 reviews:obj,
                 place_full_name:name

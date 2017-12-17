@@ -13,7 +13,10 @@ module.exports = {
             return !isNaN(value) && 
                    parseFloat(Number(value)) == value && 
                    !isNaN(parseFloat(value, 10));
-          }
+          },
+        replaceAll:function(target,search, replacement) {
+            return target.replace(new RegExp(search, 'g'), replacement);
+        }
     },
     http:{
         request_get(req){
