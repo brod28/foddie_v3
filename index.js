@@ -4,6 +4,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 
+const DAL = require('./repository/DAL/DAL.js');
 const repositor_review = require('./repository/review.js');
 const repositor_location = require('./repository/location.js');
 const context_common = require('./repository/helpers/common.js');
@@ -69,8 +70,47 @@ restService.get('/api/tracker', function (req, res) {
     console.log("request tracker with for " + req.param('places'))
     console.log("request tracker with for " + req.param('location'))
     console.log("request tracker with for " + req.param('refer'))
-    
-    req.param('places').split('||').forEach(element=>{
+    let referurl=req.param('refer');
+
+    let cities=["london","losangeles","newyork","paris","moscow","telaviv"];
+
+    let location;
+    cities.forEach(element=>{
+        let cityurl=context_common.helper.replaceAll(referurl,"-","").toLowerCase();
+        if(cityurl.includes(element)){
+            location=element;
+        }
+    })
+
+    let tags=[];
+    if(location){
+        tags.push(location);
+    }
+
+    try{
+        let url_parts=referurl.split("/");
+        url_parts.forEach((element,index)=>{
+            if(index>2){
+                if(element){
+                    element.split("-").forEach(element1=>{
+                        tags.push(element1);
+                    })
+                }
+            }
+        })
+    }
+    catch(err){
+        console.log("tags does find for "+referurl);
+    }
+
+    let places=req.param('places').split('||');
+    let article={
+        ref_url:referurl,
+        places:places,
+        tags:tags
+    }
+    DAL.AddArticle(article);
+    places.split('||').forEach(element=>{
         element=element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i,"");
         let request = require('request');
         console.log('traker : '+'https://foodieforfoodie.herokuapp.com/api/ping_reviews?name='+element);
