@@ -111,7 +111,7 @@ restService.get('/api/tracker', function (req, res) {
         location:location
     }
     DAL.AddArticle(article);
-    places.split('||').forEach(element=>{
+    places.forEach(element=>{
         element=element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i,"");
         let request = require('request');
         console.log('traker : '+'https://foodieforfoodie.herokuapp.com/api/ping_reviews?name='+element);
