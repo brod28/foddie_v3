@@ -107,7 +107,8 @@ restService.get('/api/tracker', function (req, res) {
     let article={
         ref_url:referurl,
         places:places,
-        tags:tags
+        tags:tags,
+        location:location
     }
     DAL.AddArticle(article);
     places.split('||').forEach(element=>{
