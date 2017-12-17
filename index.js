@@ -1,8 +1,5 @@
 'use strict';
-String.prototype.replaceAll = function(search, replacement) {
-    var target = this;
-    return target.replace(new RegExp(search, 'g'), replacement);
-};
+
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -78,7 +75,7 @@ restService.get('/api/tracker', function (req, res) {
         let request = require('request');
         console.log('traker : '+'https://foodieforfoodie.herokuapp.com/api/ping_reviews?name='+element);
         request({
-            url: 'https://fwwzrx3aa2.execute-api.us-east-1.amazonaws.com/prod/my-service-dev-hello?name='+element,
+            url: 'https://fwwzrx3aa2.execute-api.us-east-1.amazonaws.com/prod/my-service-dev-getdata?name='+element,
             method: 'GET'
         }, function (err, res, body) {
             console.log('traker '+element + " for "+ body);
@@ -118,8 +115,7 @@ restService.get('/api/reviews', function (req, res) {
 });
 
 restService.get('/api/ping_reviews', function (req, res) {
-
-
+    context_common.log.information("ping_reviews "+req.param('name'))
     let request = {
         name: req.param('name')
     };
@@ -141,7 +137,7 @@ restService.use(express.static(path.join(__dirname, 'client/build')));
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
 restService.get('*', (req, res) => {
-    console.log("request index");
+    context_common.log.information("index page ")
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE'); // If needed
     res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,contenttype'); // If needed
