@@ -70,6 +70,7 @@ restService.get('/api/tracker', function (req, res) {
     console.log("request tracker with for " + req.param('places'))
     console.log("request tracker with for " + req.param('location'))
     console.log("request tracker with for " + req.param('refer'))
+    console.log("request tracker with for " + req.param('source'))
     let referurl=req.param('refer');
 
     let cities=["london","losangeles","newyork","paris","moscow","telaviv"];
@@ -93,7 +94,7 @@ restService.get('/api/tracker', function (req, res) {
             if(index>2){
                 if(element){
                     element.split("-").forEach(element1=>{
-                        element.split("+").forEach(element2=>{
+                        element1.split("+").forEach(element2=>{
                             tags.push(element2);
                         })                            
                     })
@@ -106,11 +107,23 @@ restService.get('/api/tracker', function (req, res) {
     }
 
     let places=req.param('places').split('||');
+    places.forEach((element,index)=>{
+        if(element){
+            places[index]=element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i,"");
+        }
+    });   
+    let source=req.param('source');
+    let path;
+    if(req.param('path')!=""){
+        path=req.param('path');
+    }
     let article={
         ref_url:referurl,
         places:places,
         tags:tags,
-        location:location
+        location:location,
+        source:source,
+        version:"v2"
     }
     DAL.AddArticle(article);
     places.forEach(element=>{

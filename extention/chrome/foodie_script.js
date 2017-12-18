@@ -25,7 +25,7 @@ function dompath( element )
 var help_me = function () {
     let path=dompath(last_element.toElement);
     console.log("help me past is "+path);
-    track(path);
+    track(path,"area selected");
     var iframe = document.getElementById("foodie_to_foodie_iframe")
     if (iframe == undefined) {
         iframe = document.createElement("iframe");
@@ -91,13 +91,13 @@ let markAllRestaurants=function(){
         })
         if(path){
             console.log("automatic past is "+path);
-            track(path);
+            track(path,"auto");
         }
     }
 } 
 
 
-let track=(path)=>{
+let track=(path,source)=>{
     let sibling=document.querySelectorAll(path)
     let locations=[];
     sibling.forEach(element=>{
@@ -111,7 +111,7 @@ let track=(path)=>{
             iframe.setAttribute("style", "width:3px;position: fixed;top: 0px;left: 3px;height:100%;overflow: auto; z-index: 21474836;background-color:whitesmoke;");
             document.body.insertBefore(iframe, document.body.firstChild);
         }
-        iframe.src = 'https://foodieforfoodie.herokuapp.com/api/tracker?location=london&places='+encodeURIComponent(locations.join('||'))+"&refer="+encodeURIComponent(window.location.href);
+        iframe.src = 'https://foodieforfoodie.herokuapp.com/api/tracker?location=london&places='+encodeURIComponent(locations.join('||'))+"&refer="+encodeURIComponent(window.location.href)+"&source="+source+'&path='+path;
         console.log(locations.join(',')+" locations in path "+path);        
     }
     else{
