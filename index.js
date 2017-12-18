@@ -125,6 +125,7 @@ restService.get('/api/tracker', function (req, res) {
         source:source,
         version:"v2"
     }
+    article=JSON.parse(context_common.helper.replaceAll(JSON.stringify(article),'""','" "'));
     DAL.AddArticle(article);
     places.forEach(element=>{
         element=element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i,"");
