@@ -86,14 +86,16 @@ restService.get('/api/tracker', function (req, res) {
     if(location){
         tags.push(location);
     }
-
+    
     try{
         let url_parts=referurl.split("/");
         url_parts.forEach((element,index)=>{
             if(index>2){
                 if(element){
                     element.split("-").forEach(element1=>{
-                        tags.push(element1);
+                        element.split("+").forEach(element2=>{
+                            tags.push(element2);
+                        })                            
                     })
                 }
             }
