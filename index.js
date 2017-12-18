@@ -105,10 +105,10 @@ restService.get('/api/tracker', function (req, res) {
     catch(err){
         console.log("tags does find for "+referurl);
     }
-
+    let places_raw=req.param('places');
     let places=req.param('places').split('||');
     places.forEach((element,index)=>{
-        if(element){
+        if(element && element!="" && element.length<35){
             places[index]=element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i,"");
         }
     });   
@@ -123,6 +123,7 @@ restService.get('/api/tracker', function (req, res) {
         tags:tags,
         location:location,
         source:source,
+        places_raw:places_raw,
         version:"v2"
     }
     article=JSON.parse(context_common.helper.replaceAll(JSON.stringify(article),'""','" "'));
