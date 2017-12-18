@@ -71,79 +71,85 @@ restService.get('/api/tracker', function (req, res) {
     console.log("request tracker with for " + req.param('location'))
     console.log("request tracker with for " + req.param('refer'))
     console.log("request tracker with for " + req.param('source'))
-    let referurl=req.param('refer');
+    let referurl = req.param('refer');
 
-    let cities=["london","losangeles","newyork","paris","moscow","telaviv"];
+    let cities = ["london", "losangeles", "newyork", "paris", "moscow", "telaviv"];
 
     let location;
-    cities.forEach(element=>{
-        let cityurl=context_common.helper.replaceAll(referurl,"-","").toLowerCase();
-        if(cityurl.includes(element)){
-            location=element;
+    cities.forEach(element => {
+        let cityurl = context_common.helper.replaceAll(referurl, "-", "").toLowerCase();
+        if (cityurl.includes(element)) {
+            location = element;
         }
     })
 
-    let tags=[];
-    if(location){
+    let tags = [];
+    if (location) {
         tags.push(location);
     }
-    
-    try{
-        let url_parts=referurl.split("/");
-        url_parts.forEach((element,index)=>{
-            if(index>2){
-                if(element){
-                    element.split("-").forEach(element1=>{
-                        element1.split("+").forEach(element2=>{
-                            tags.push(element2);
-                        })                            
+
+    try {
+        let url_parts = referurl.split("/");
+        url_parts.forEach((element, index) => {
+            if (index > 2) {
+                if (element) {
+                    element.split("-").forEach(element1 => {
+                        element1.split("+").forEach(element2 => {
+                            element2.split("=").forEach(element3 => {
+                                element3.split("&").forEach(element4 => {
+                                    element4.split("_").forEach(element5 => {
+                                        tags.push(element5);
+                                    })
+                                })
+                            })
+                        })
                     })
                 }
             }
         })
     }
-    catch(err){
-        console.log("tags does find for "+referurl);
+    catch (err) {
+        console.log("tags does find for " + referurl);
     }
-    let places_raw=req.param('places');
-    let places=req.param('places').split('||');
-    places.forEach((element,index)=>{
-        if(element && element!="" && element.length<35){
-            places[index]=element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i,"");
+    let places_raw = req.param('places');
+    let places = req.param('places').split('||');
+    places.forEach((element, index) => {
+        if (element && element != "" && element.length < 35) {
+            places[index] = element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i, "");
         }
-    });   
-    let source=req.param('source');
+    });
+    let source = req.param('source');
     let path;
-    if(req.param('path')!=""){
-        path=req.param('path');
+    if (req.param('path') != "") {
+        path = req.param('path');
     }
-    let article={
-        ref_url:referurl,
-        places:places,
-        tags:tags,
-        location:location,
-        source:source,
-        places_raw:places_raw,
-        version:"v2"
+    let article = {
+        ref_url: referurl,
+        places: places,
+        tags: tags,
+        location: location,
+        source: source,
+        places_raw: places_raw,
+        version: "v2"
     }
-    article=JSON.parse(context_common.helper.replaceAll(JSON.stringify(article),'""','" "'));
+    article = JSON.parse(context_common.helper.replaceAll(JSON.stringify(article), '""', '" "'));
     DAL.AddArticle(article);
-    places.forEach(element=>{
-        element=element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i,"");
-        if(location && location!=""){
-            element=element+" , "+location
+    places.forEach(element => {
+        element = element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i, "");
+        if (location && location != "") {
+            element = element + " , " + location
         }
         let request = require('request');
-        console.log('traker : '+'https://foodieforfoodie.herokuapp.com/api/ping_reviews?name='+element);
+        console.log('traker : ' + 'https://foodieforfoodie.herokuapp.com/api/ping_reviews?name=' + element);
         request({
-            url: 'https://fwwzrx3aa2.execute-api.us-east-1.amazonaws.com/prod/my-service-dev-getdata?name='+element,
+            url: 'https://fwwzrx3aa2.execute-api.us-east-1.amazonaws.com/prod/my-service-dev-getdata?name=' + element,
             method: 'GET'
         }, function (err, res, body) {
-            console.log('traker '+element + " for "+ body);
-            if(err && err!=null){
-                console.log('traker '+element + " for "+ err);
+            console.log('traker ' + element + " for " + body);
+            if (err && err != null) {
+                console.log('traker ' + element + " for " + err);
             }
-        });        
+        });
     })
     res.json({ data: "ok" });
 });
@@ -176,16 +182,16 @@ restService.get('/api/reviews', function (req, res) {
 });
 
 restService.get('/api/ping_reviews', function (req, res) {
-    context_common.log.information("ping_reviews "+req.param('name'))
+    context_common.log.information("ping_reviews " + req.param('name'))
     let request = {
         name: req.param('name')
     };
     let retVal = repositor_review.get_cache_reviews(request);
 
-    if(retVal){
+    if (retVal) {
         res.json(retVal);
     }
-    else{
+    else {
         res.status(204).send("doesn't have the data yet");
     }
 });
