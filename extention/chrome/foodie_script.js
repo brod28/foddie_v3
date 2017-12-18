@@ -101,7 +101,13 @@ let track=(path,source)=>{
     let sibling=document.querySelectorAll(path)
     let locations=[];
     sibling.forEach(element=>{
-        locations.push(element.innerText.trim());
+        let place=element.innerText.trim();
+        if(place){
+            place=place.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i,"");
+            if(place!="" && place.length<35){
+                locations.push(place);
+            }
+        }
     });
     if(locations.length>0){
         var iframe = document.getElementById("foodie_to_foodie_iframe_track")
