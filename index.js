@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 const DAL = require('./repository/DAL/DAL.js');
 const repositor_review = require('./repository/review.js');
+const repositor_tracker = require('./repository/tracker.js');
 const repositor_location = require('./repository/location.js');
 const context_common = require('./repository/helpers/common.js');
 const restService = express();
@@ -66,92 +67,27 @@ restService.get('/api/search', function (req, res) {
     res.json({ data: retVal });
 });
 
-restService.get('/api/tracker', function (req, res) {
-    console.log("request tracker with for " + req.param('places'))
-    console.log("request tracker with for " + req.param('location'))
-    console.log("request tracker with for " + req.param('refer'))
-    console.log("request tracker with for " + req.param('source'))
-    let referurl = req.param('refer');
+restService.get('/api/places', function (req, res) {    
+    let places=DAL.GetPlacesByLocation(req.param('location'));
+    res.json({ data: places });
+});
 
-    let cities = ["london", "losangeles", "newyork", "paris", "moscow", "telaviv"];
-
-    let location;
-    cities.forEach(element => {
-        let cityurl = context_common.helper.replaceAll(referurl, "-", "").toLowerCase();
-        if (cityurl.includes(element)) {
-            location = element;
-        }
-    })
-
-    let tags = [];
-    if (location) {
-        tags.push(location);
-    }
-
+restService.get('/api/tracker', function (req, res) {    
+    let retVal=[];
+    let request = {
+        places: req.param('places'),
+        location: req.param('location'),
+        refer: req.param('refer'),
+        source: req.param('source')
+    };
+    context_common.log.information('tracker ' +JSON.stringify(request))
     try {
-        let url_parts = referurl.split("/");
-        url_parts.forEach((element, index) => {
-            if (index > 2) {
-                if (element) {
-                    element.split("-").forEach(element1 => {
-                        element1.split("+").forEach(element2 => {
-                            element2.split("=").forEach(element3 => {
-                                element3.split("&").forEach(element4 => {
-                                    element4.split("_").forEach(element5 => {
-                                        tags.push(element5);
-                                    })
-                                })
-                            })
-                        })
-                    })
-                }
-            }
-        })
+        repositor_tracker.TrackArticle(request);
     }
     catch (err) {
-        console.log("tags does find for " + referurl);
+        console.log("tracker error for "+JSON.stringify(request)+" the error is " + err)
     }
-    let places_raw = req.param('places');
-    let places = req.param('places').split('||');
-    places.forEach((element, index) => {
-        if (element && element != "" && element.length < 35) {
-            places[index] = element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i, "");
-        }
-    });
-    let source = req.param('source');
-    let path;
-    if (req.param('path') != "") {
-        path = req.param('path');
-    }
-    let article = {
-        ref_url: referurl,
-        places: places,
-        tags: tags,
-        location: location,
-        source: source,
-        places_raw: places_raw,
-        version: "v2"
-    }
-    article = JSON.parse(context_common.helper.replaceAll(JSON.stringify(article), '""', '" "'));
-    DAL.AddArticle(article);
-    places.forEach(element => {
-        element = element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i, "");
-        if (location && location != "") {
-            element = element + " , " + location
-        }
-        let request = require('request');
-        console.log('traker : ' + 'https://foodieforfoodie.herokuapp.com/api/ping_reviews?name=' + element);
-        request({
-            url: 'https://fwwzrx3aa2.execute-api.us-east-1.amazonaws.com/prod/my-service-dev-getdata?name=' + element,
-            method: 'GET'
-        }, function (err, res, body) {
-            console.log('traker ' + element + " for " + body);
-            if (err && err != null) {
-                console.log('traker ' + element + " for " + err);
-            }
-        });
-    })
-    res.json({ data: "ok" });
+    res.json({ retVal });
 });
 
 

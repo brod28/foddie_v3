@@ -17,29 +17,34 @@ module.exports = {
         Add(addModel)
     },
     GetPlace(placeName){
-        let retVal;
-        let wait=true;
-        let callback=(data)=>{
-            retVal=data;
-            wait=false;
-        };
         getModel={
             Key:{"place_full_name":placeName},
             TableName:'Places'
              
         }
-        Get(getModel,callback);
-        require('deasync').loopWhile(()=>{
-            return wait;
-        });
+        let retVal=Get(getModel);
         if(retVal){
             retVal=retVal.reviews
         }
         return retVal;
+    },
+    GetPlacesByLocation(locationName){
+        getModel={
+            TableName:"Articles",
+            IndexName:"location-index",
+            KeyConditionExpression:'#location=:locationName',
+            ExpressionAttributeNames:{
+                '#location':'location'
+            },
+            ExpressionAttributeValues: {
+              ':locationName': locationName
+            }        
+        }
+        let retVal=Get(getModel);
+        return retVal;
     }
-
 }
-const test=1;
+
 const GetDocClient=()=>{
     let AWS = require("aws-sdk");
     
@@ -48,11 +53,7 @@ const GetDocClient=()=>{
       region: "us-east-1",
       accessKeyId: process.env.AWSACCESSKEYID,
       secretAccessKey: process.env.AWSSECRETACCESSKEY
-    });
-
-    console.log(process.env.AWS_ACCESS_KEY_ID);
-    console.log(process.env.AWSACCESSKEYID);
-    
+    });    
     let docClient = new AWS.DynamoDB.DocumentClient();
     return docClient;
 }
@@ -78,23 +79,60 @@ const Add=(model)=>{
         console.error(model.TableName+" Add not valid :"+JSON.stringify(model.obj, null, 2));
     }
 }
-const Get=(model,callback)=>{
-    var params = {
+const Get=(model)=>{
+    let retVal;
+    let wait=true;
+    let callback=(data)=>{
+        retVal=data;
+        wait=false;
+    };
+    let docClient=GetDocClient();
+    let params = {
         TableName: model.TableName,
-        Key:model.Key
     }
-    docClient=GetDocClient();
-    docClient.get(params, function(err, data) {
-        if (err) {
-            console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
-        }
-        if(data.Item){
-            callback(data.Item);
-        }
-        else{
-            callback(undefined);
-        }
+    if(!model.IndexName){
+        params.Key=model.Key;        
+        docClient.get(params, function(err, data) {
+            if (err) {
+                console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
+            }
+            if(data.Item){
+                callback(data.Item);
+            }
+            else if(data.Items){
+                callback(data.Items);
+            }
+            else{
+                callback(undefined);
+            }
+        });    
+    }
+    else{
+        params.IndexName=model.IndexName;
+        params.KeyConditionExpression=model.KeyConditionExpression;
+        params.ExpressionAttributeNames=model.ExpressionAttributeNames;
+        params.ExpressionAttributeValues=model.ExpressionAttributeValues;
+        params.Key=undefined;
+        docClient.query(params, function(err, data) {
+            if (err) {
+                console.error("Unable to read item. Error JSON:", JSON.stringify(err, null, 2));
+            }
+            if(data.Item){
+                callback(data.Item);
+            }
+            else if(data.Items){
+                callback(data.Items);
+            }
+            else{
+                callback(undefined);
+            }
+        });    
+    }
+
+    require('deasync').loopWhile(()=>{
+        return wait;
     });
+    return retVal;
 }
 
 /*
