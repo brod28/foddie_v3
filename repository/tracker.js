@@ -48,6 +48,9 @@ module.exports = {
         places.forEach((element, index) => {
             if (element && element != "" && element.length < 35) {
                 places[index] = element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i, "");
+                if( location && location!=''){
+                    places[index]=places[index]+" , " + location
+                }
             }
         });
         let source = req.source;
@@ -67,9 +70,8 @@ module.exports = {
         article = JSON.parse(context_common.helper.replaceAll(JSON.stringify(article), '""', '" "'));
         DAL.AddArticle(article);
         places.forEach(element => {
-            element = element.replace(/^([" "]?)+([0-9]{1,5})+([" "]?)+([.]{0,1})+([" "]?)/i, "");
             if (location && location != "") {
-                element = element + " , " + location
+                element = element 
             }
             let request = require('request');
             console.log('traker : ' + 'https://foodieforfoodie.herokuapp.com/api/ping_reviews?name=' + element);

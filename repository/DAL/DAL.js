@@ -7,6 +7,14 @@ module.exports = {
             TableName:'Articles'
         }
         Add(addModel)
+    },    
+    AddArticlePerPlace(articlePerPlace){
+        addModel={
+            validation:articlePerPlace && articlePerPlace.ref_url && articlePerPlace.place,
+            obj:articlePerPlace,
+            TableName:'ArticleToPlace'
+        }
+        Add(addModel)
     },
     AddPlace(place){
         addModel={
@@ -15,6 +23,18 @@ module.exports = {
             TableName:'Places'  
         }
         Add(addModel)
+    },
+    GetPlaces(listPlaceName){
+        getModel={
+            Key:{"place_full_name":placeName},
+            TableName:'Places'
+             
+        }
+        let retVal=Get(getModel);
+        if(retVal){
+            retVal=retVal.reviews
+        }
+        return retVal;
     },
     GetPlace(placeName){
         getModel={
@@ -79,13 +99,16 @@ const Add=(model)=>{
         console.error(model.TableName+" Add not valid :"+JSON.stringify(model.obj, null, 2));
     }
 }
-const Get=(model)=>{
+const Get=(model,callback)=>{
     let retVal;
-    let wait=true;
-    let callback=(data)=>{
-        retVal=data;
-        wait=false;
-    };
+    let wait=false;
+    if(!callback){
+        callback=(data)=>{
+            retVal=data;
+            wait=false;
+        };
+        wait=true;
+    }
     let docClient=GetDocClient();
     let params = {
         TableName: model.TableName,

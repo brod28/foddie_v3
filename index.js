@@ -72,6 +72,11 @@ restService.get('/api/places', function (req, res) {
     res.json({ data: places });
 });
 
+restService.get('/api/test', function (req, res) {    
+    require('./repository/handler.js').mapArticlePerPlace();
+    res.json({ data: places });
+});
+
 restService.get('/api/tracker', function (req, res) {    
     let retVal=[];
     let request = {
